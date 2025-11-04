@@ -37,7 +37,7 @@ contract Vault {
         if (_amount == type(uint256).max) {
             amountToRedeem = i_rebaseToken.balanceOf(msg.sender);
         }
-        i_rebaseToken.burn(msg.sender, _amount);
+        i_rebaseToken.burn(msg.sender,amountToRedeem);
 
         (bool success,) = payable(msg.sender).call{value: amountToRedeem}("");
 
